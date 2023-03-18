@@ -61,7 +61,7 @@ export default function MatchMaker () {
     
             document.querySelector('.match-maker').style.transition = 'opacity .2s .5s';
             setVisibility(screenHidden);
-            navigate(`/poké-decks/${randomId}`)
+            navigate(`/${randomId}`)
         }
     }
 
@@ -71,7 +71,7 @@ export default function MatchMaker () {
             setVisibility(screenHidden);
         
             setTimeout(() => {
-                navigate(`/poké-decks/${inputId}`)
+                navigate(`/${inputId}`)
             }, 1000);
         }
     }

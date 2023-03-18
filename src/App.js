@@ -13,11 +13,11 @@ function App() {
         <div className='pages'>
           <Routes>
             <Route
-              path='/poké-decks'
+              path='/'
               element={<MatchMaker />}
             />
             <Route 
-              path='/poké-decks/:id'
+              path='/:id'
               element={<Gameroom />}
             />
           </Routes>
