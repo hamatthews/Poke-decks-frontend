@@ -48,11 +48,11 @@ export default function Gameroom () {
     const [visibility, setVisibility] = useState(screenHidden);
     const [socket, setSocket] = useState();
 
-    const ENDPOINT = 'http://localhost:8000';
+    const ENDPOINT = 'https://poke-decks-backend.onrender.com';
     
     useEffect(() => {
         if (!state.deckChoices.length) {
-            fetch('http://localhost:8000/api/decks', {
+            fetch('https://poke-decks-backend.onrender.com/api/decks', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'

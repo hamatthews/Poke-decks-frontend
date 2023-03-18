@@ -38,7 +38,7 @@ export default function MatchMaker () {
         }
 
         // gets deck choices from db
-        fetch('http://localhost:8000/api/decks', {
+        fetch('https://poke-decks-backend.onrender.com/api/decks', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
