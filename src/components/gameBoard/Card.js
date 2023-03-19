@@ -5,7 +5,7 @@ import CardZoomBtn from './CardZoomBtn';
 import clickCard from '../../functions/clickCard';
 
 import {useSelector, useDispatch} from 'react-redux';
-import {update, clearSelected} from '../../redux/board';
+import {update} from '../../redux/board';
 
 export default function Card ({zone, arr, cardIndex, index, socket, cardDisplay, boardSide}) {
     const state = useSelector(state => state.board);

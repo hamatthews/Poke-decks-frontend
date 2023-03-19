@@ -1,6 +1,4 @@
-import {useEffect} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
-import {update, clearSelected} from '../../redux/board';
+import {useSelector} from 'react-redux';
 
 import RenderArray from './RenderArray';
 import ZoneBanner from './ZoneBanner';
@@ -10,7 +8,6 @@ import CardZoomBtn from './CardZoomBtn';
 export default function CardDisplay ({zone, arr, socket, boardSide}) {
     const state = useSelector(state => state.board);
 
-    // const zone = state.mySelected.currentZone;
     const extended = zone === 'discard' || zone === 'lost' || zone === 'deck' || arr.length > 9 || state[boardSide].chatImages.length > 9;
 
     let mainClass = extended ? ' extended' : '';

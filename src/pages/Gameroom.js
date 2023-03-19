@@ -3,7 +3,7 @@ import io from 'socket.io-client';
 
 
 import {useSelector, useDispatch} from 'react-redux';
-import {update, clearSelected} from '../redux/board';
+import {update} from '../redux/board';
 import {useNavigate} from 'react-router-dom';
 
 import Background from '../components/Background/Background';

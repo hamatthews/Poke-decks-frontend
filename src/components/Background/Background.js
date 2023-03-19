@@ -1,13 +1,8 @@
 import './background.css';
 
 import {useState, useEffect} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
-import {update} from '../../redux/board';
 
 export default function Background ({page}) {
-
-    const state = useSelector(state => state.board);
-    const dispatch = useDispatch();
     const centeredBackground = `
     @media (max-width: 1040px) {
         .light {
@@ -61,10 +56,6 @@ export default function Background ({page}) {
     useEffect(() => {
         setStyleBlock(backgroundStyle);
     }, [])
-
-    
-    // make it so the background light is only off-center under 1040px on gameboard and not matchmaker
-
 
     return (
         <>

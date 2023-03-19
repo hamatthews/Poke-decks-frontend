@@ -1,5 +1,5 @@
 import {useSelector, useDispatch} from 'react-redux';
-import {update, clearSelected} from '../../redux/board';
+import {update} from '../../redux/board';
 
 import RenderArray from './RenderArray';
 

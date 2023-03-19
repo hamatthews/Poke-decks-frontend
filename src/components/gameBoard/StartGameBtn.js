@@ -7,8 +7,6 @@ export default function StartGameBtn ({boardSide}) {
     const state = useSelector(state => state.board);
     const dispatch = useDispatch();
 
-    let buttonDisplay;
-    let buttonText = 'Place pokemon in active zone';
     let buttonPress;
     
     const flipPlayer = state.hostOrOpp === 'host' ? 'opp' : state.hostOrOpp === 'opp' ? 'host' : undefined; 

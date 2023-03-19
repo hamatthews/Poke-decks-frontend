@@ -1,5 +1,5 @@
 import {useSelector, useDispatch} from 'react-redux';
-import {update, clearSelected} from '../../redux/board';
+import {update} from '../../redux/board';
 
 import Coin from './Coin';
 import StartGameBtn from './StartGameBtn';
@@ -26,6 +26,13 @@ export default function Buttons ({socket, boardSide}) {
         socket.emit('updateTurn', changeTurn);
     };
 
+
+    const copyRoomCode = () => {
+        navigator.clipboard.writeText(state.roomId);
+        alert(`Copied Room Code ${state.roomId} to clipboard`);
+
+    }
+
     return (
         <div className={'buttons ' + boardSide}>
             <StartGameBtn {...({boardSide})}/>
@@ -37,7 +44,8 @@ export default function Buttons ({socket, boardSide}) {
             {(state.gamePhase[state.hostOrOpp] !== 'setup' && state.gamePhase[flipPlayer] !== 'setup') 
                 && <div className='concede-btn button-zone btn' onClick={() => dispatch(update(['popupScreen', 'concede-prompt']))}>{state.gamePhase[flipPlayer] === 'draw' ? 'Draw' : 'Concede'}</div>
             }
-            <div className='concede-btn button-zone btn' onClick={() => dispatch(update(['popupScreen', 'help']))}>Help</div>
+            <div className='help-btn button-zone btn' onClick={() => dispatch(update(['popupScreen', 'help']))}>Help</div>
+            <div className='room-id-btn button-zone btn' onClick={copyRoomCode}>Room Code: {state.roomId}</div>        
         </div>
     )
 }

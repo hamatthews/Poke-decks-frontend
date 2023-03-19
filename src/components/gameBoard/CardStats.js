@@ -1,5 +1,5 @@
 import {useSelector, useDispatch} from 'react-redux';
-import {update, clearSelected} from '../../redux/board';
+import {update} from '../../redux/board';
 
 import clickCard from '../../functions/clickCard';
 
@@ -24,9 +24,6 @@ export default function CardStats ({arr, cardIndex, cardDisplay, socket, boardSi
     }
 
     const changeHp = e => {
-        // make it so you can change health with up and down arrows,
-        // make it so health is always in powers of 10
-
         if (state.mySelected.boardSide === 'bottom') {
             let array = state[boardSide].cardList.map(e => ({...e}));
             const inputVal = +e.target.value;

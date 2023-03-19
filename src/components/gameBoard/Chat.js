@@ -100,7 +100,6 @@ export default function Chat ({socket, boardSide}) {
                 fontFamily: 'monospace',
                 border: `1px solid ${playerColor}`,
                 alignSelf: e.hostOrOpp === state.hostOrOpp ? 'end' : 'start',
-                // backgroundColor: 'rgb(30,0,50)'
             }
 
             return <div className={'chat-message'}
@@ -155,19 +154,17 @@ export default function Chat ({socket, boardSide}) {
     }, [state.myGameLog])
 
     useEffect(() => {
-        // if (!state.narrowScreen) {
-            const gameLog = state.theirGameLog;
-            const chatLogDiv = document.querySelector('.chat-log');
+        const gameLog = state.theirGameLog;
+        const chatLogDiv = document.querySelector('.chat-log');
 
-            if (gameLog[0] && (chatLogDiv && chatLogDiv.scrollTop + 100 <= chatLogDiv.scrollHeight - chatLogDiv.offsetHeight
-            || (!newMessage[gameLog[gameLog.length - 1].messageType] && chatTab !== gameLog[gameLog.length - 1].messageType && chatTab !== 'all'))) {
+        if (gameLog[0] && (chatLogDiv && chatLogDiv.scrollTop + 100 <= chatLogDiv.scrollHeight - chatLogDiv.offsetHeight
+        || (!newMessage[gameLog[gameLog.length - 1].messageType] && chatTab !== gameLog[gameLog.length - 1].messageType && chatTab !== 'all'))) {
 
-                setNewMessage(prev => ({
-                    ...prev,
-                    [gameLog[gameLog.length - 1].messageType]: true
-                }));
-            }
-        // }
+            setNewMessage(prev => ({
+                ...prev,
+                [gameLog[gameLog.length - 1].messageType]: true
+            }));
+        }
     }, [state.theirGameLog]);
 
     return (

@@ -1,14 +1,12 @@
 import shuffle from '../../functions/shuffle';
 
 import {useSelector, useDispatch} from 'react-redux';
-import {update, clearSelected} from '../../redux/board';
+import {update} from '../../redux/board';
 
 export default function PrizeBtns({index, boardSide}) {
 
     const state = useSelector(state => state.board);
     const dispatch = useDispatch();
-    const otherSide = boardSide === 'top' ? 'bottom' : boardSide === 'bottom' ? 'top' : undefined;
-
 
     const time = Date.now();
 

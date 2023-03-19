@@ -1,9 +1,8 @@
-import {useState, useEffect} from 'react';
+import {useEffect} from 'react';
 
 import Zone from './Zone';
 import ActiveZone from './ActiveZone';
 import BenchZone from './BenchZone';
-import Card from './Card';
 import CardDisplay from './CardDisplay';
 import Chat from './Chat';
 import Buttons from './Buttons'
@@ -91,8 +90,6 @@ export default function PlayerBoard ({boardSide, socket}) {
     // updates myBoard when theirBoard changes
     useEffect(() => {
         socket.on('theirBoardChange', payload => {
-            console.log('theirBoardChange')
-
             if (boardSide === 'top') return;
             const data = JSON.parse(payload);
 
@@ -109,7 +106,6 @@ export default function PlayerBoard ({boardSide, socket}) {
     // updates theirBoard when myBoard changes
     useEffect(() => {
         if (boardSide === 'top') return;
-        console.log('myBoardChange')
         socket.emit('myBoardChange', JSON.stringify(state));
     }, [state[boardSide].cardList, state[boardSide].deck, state[boardSide].hand, state[boardSide].discard, state[boardSide].lost, state[boardSide].prize, state[boardSide].active, state[boardSide].bench1, state[boardSide].bench2, state[boardSide].bench3, state[boardSide].bench4, state[boardSide].bench5, state[boardSide].field, state.myGameLog, state.mySelected, state[boardSide].conditions, state.gamePhase[state.hostOrOpp]]);
 

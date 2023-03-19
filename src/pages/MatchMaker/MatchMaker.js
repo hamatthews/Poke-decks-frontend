@@ -1,5 +1,3 @@
-/* gives you the option to either pick a deck and start
-a new match, or to enter in the id for an ongoing match */
 import {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
@@ -26,7 +24,6 @@ export default function MatchMaker () {
             pointer-events: none;
         }
     `
-    // const [deckChoices, setDeckChoices] = useState([]);
     const [chosenDeck, setChosenDeck] = useState();
     const [visibility, setVisibility] = useState(screenHidden);
     const [inputId, setInputId] = useState();

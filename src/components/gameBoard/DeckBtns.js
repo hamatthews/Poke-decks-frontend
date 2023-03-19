@@ -1,4 +1,3 @@
-import {useState, useEffect} from 'react';
 import shuffle from '../../functions/shuffle';
 
 import {useSelector, useDispatch} from 'react-redux';
@@ -116,7 +115,6 @@ export default function DeckBtns ({boardSide}) {
     if (curr === 'deck') return (
         <div
         className='deck-btns btns'
-        // onContextMenu={changeSearchCount}
         >
             <div className='draw deck-btn btn' onClick={e => drawCard(e)}>Draw</div> 
             <div className='shuffle deck-btn btn' onClick={e => shuffleDeck(e)}>Shuffle</div>
@@ -128,7 +126,7 @@ export default function DeckBtns ({boardSide}) {
                 value={state[boardSide].deckSearch.count}
                 onChange={e => changeSearchCount(e)}
                 onMouseEnter={e => inputHighlight(e)}
-                onClick={e => {inputHighlight(e); /*changeSearchCount(e)*/}}
+                onClick={e => {inputHighlight(e)}}
             ></input>
             <div className='view deck-btn btn' onClick={e => viewCards(e)}>{state[boardSide].deckSearch.view ? 'Hide' : 'View'}</div>
         </div>

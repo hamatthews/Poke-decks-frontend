@@ -12,7 +12,6 @@ export default function PopupScreen ({socket}) {
     const flipPlayer = state.hostOrOpp === 'host' ? 'opp' : state.hostOrOpp === 'opp' ? 'host' : undefined;
 
     const [chosenDeck, setChosenDeck] = useState();
-    const [playerCount, setPlayerCount] = useState(0);
 
     const CardZoom = () => {
         console.log(state.popupScreen);

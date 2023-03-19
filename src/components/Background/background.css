@@ -30,19 +30,6 @@
   ".. .. .."
   ".. cl .."
   ".. .. ..";
-
-
-  /*         grid-template:
-        "lot dit prt hat det fit" minmax(0, 1fr)
-        "bet bet bet stt  ch  ch" minmax(0, 1.2fr)
-        "act act act stt  ch  ch" minmax(0, 1.2fr)
-        "act act act stt  ch  ch" minmax(0, .6fr)
-        "... ... ... ...  ch  ch" minmax(0, .5fr)
-        "acb acb acb bub  ch  ch" minmax(0, .6fr)
-        "acb acb acb bub  ch  ch" minmax(0, 1.2fr)
-        "beb beb beb bub  ch  ch" minmax(0, 1.2fr)
-        "lob dib prb hab deb fib" minmax(0, 1fr)
-        / minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);   */
 }
 
 .centered-lights {
@@ -84,7 +71,6 @@
   height: 150px;
   background: rgb(200,255,255);
   border-radius: 50%;
-  /* z-index: 1; */
   box-shadow: 0 0 10px rgb(200,255,255);
 }
 

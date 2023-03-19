@@ -6,8 +6,6 @@ import { faMagnifyingGlassPlus } from '@fortawesome/free-solid-svg-icons'
 
 
 export default function CardZoomBtn ({image}) {
-
-    const state = useSelector(state => state.board);
     const dispatch = useDispatch();
 
     const hiRes = image.slice(0, -5) + '_hires.png';

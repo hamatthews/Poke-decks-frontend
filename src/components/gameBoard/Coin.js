@@ -34,8 +34,6 @@ export default function Coin () {
 
         const start = .2;
         const duration = .6;
-        // This function determines when in the animation duration coin flip should start, and how long it should last.
-        // it takes one argument which should be a decimal representing the duration of the coin flip
         const offsetFactor = duration => {
             return 1 / duration * 2 * iterations;
         }; 
