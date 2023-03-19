@@ -166,8 +166,6 @@ export default function Gameroom () {
 
 
     if (state.hostOrOpp && socket) {
-        console.log(state)
-
         return (
             <>
                 <style>{visibility}</style>

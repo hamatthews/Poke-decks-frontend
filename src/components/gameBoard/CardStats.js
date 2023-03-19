@@ -115,7 +115,6 @@ export default function CardStats ({arr, cardIndex, cardDisplay, socket, boardSi
                         value={cardObj.hp ? cardObj.hp - cardObj.damage : ''}
                         onChange={changeHp}
                         onKeyDown={changeHpArrows}
-                        onScroll={e => console.log(e)}
                     />
                     <div>HP</div>
                 </div>}

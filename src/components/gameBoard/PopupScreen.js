@@ -14,7 +14,6 @@ export default function PopupScreen ({socket}) {
     const [chosenDeck, setChosenDeck] = useState();
 
     const CardZoom = () => {
-        console.log(state.popupScreen);
         return <div className='card-zoom' style={{backgroundImage: state.popupScreen}} />
     }
 
