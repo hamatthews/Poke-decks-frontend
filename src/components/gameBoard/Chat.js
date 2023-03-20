@@ -151,7 +151,7 @@ export default function Chat ({socket, boardSide}) {
             const chatLogDiv = document.querySelector('.chat-log');
             chatLogDiv.scrollTop = chatLogDiv.scrollHeight;    
         }
-    }, [state.myGameLog])
+    }, [state.myGameLog, state.theirGameLog])
 
     useEffect(() => {
         const gameLog = state.theirGameLog;
