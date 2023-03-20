@@ -3,6 +3,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
 import './matchMaker.css';
 
+import CardZoomBtn from '../../components/gameBoard/CardZoomBtn';
 import Background from '../../components/Background/Background';
 import {update, restartGame} from '../../redux/board';
 
@@ -73,9 +74,23 @@ export default function MatchMaker () {
         }
     }
     
+    const ImagePopup = () => {
+        return <div className='popup-screen' onClick={closePopup}>
+            <div className='exit-btn'>x</div>
+            <div className='popup-contents'>
+                <div className='card-zoom' style={{backgroundImage: state.popupScreen}} />
+            </div>
+        </div>
+    }
+
+    const closePopup = e => {
+        dispatch(update(['popupScreen', undefined]));
+    };
+
     return (
         <>
             <Background />
+            {state.popupScreen && <ImagePopup/>}
             <style>{visibility}</style>
             <div className='match-maker'>
                 <div className='new-game'>
@@ -92,7 +107,7 @@ export default function MatchMaker () {
                                 style={{...style, backgroundImage: `url(${e.cards[0].url})`}}
                                 onClick={() => setChosenDeck(e)}
                                 key={'deck-choices-' + i}
-                            ></div>
+                            ><CardZoomBtn image={`url(${e.cards[0].url})`}/></div>
                         })}
                     </div>
                     <button className='match-maker-btn' onClick={startNewGame}>Enter Game</button>
