@@ -18,7 +18,7 @@ export default function StartGameBtn ({boardSide}) {
 
             if (state.gamePhase[flipPlayer] !== 'setup') {
                 const time = Date.now();
-                const message = `${state.hostOrOpp === 'opp' ? 'challenger' : 'host'}'s turn`;
+                const message = `${state.turnPlayer === 'opp' ? 'challenger' : 'host'}'s turn`;
 
                 dispatch(update(['myGameLog', [...state.myGameLog, {time, message, messageType: 'game', hostOrOpp: state.turnPlayer}]]));
             }
