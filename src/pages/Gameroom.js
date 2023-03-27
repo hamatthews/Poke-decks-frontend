@@ -52,14 +52,14 @@ export default function Gameroom () {
     
     useEffect(() => {
         if (!state.deckChoices.length) {
-            fetch('https://poke-decks-backend.onrender.com/api/decks', {
+            fetch('https://poke-decks-backend.onrender.com/decks.json', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
                 }
             })
             .then(response => response.json())
-            .then(data => dispatch(update(['deckChoices', data])))
+            .then(data => dispatch(update(['deckChoices', data])));
         }
         
         const url = window.location.href;
