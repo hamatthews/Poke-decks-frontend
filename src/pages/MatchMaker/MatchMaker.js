@@ -7,6 +7,8 @@ import CardZoomBtn from '../../components/gameBoard/CardZoomBtn';
 import Background from '../../components/Background/Background';
 import {update, restartGame} from '../../redux/board';
 
+import decks from '../../decks.json';
+
 export default function MatchMaker () {
     const state = useSelector(state => state.board);
     const dispatch = useDispatch();
@@ -31,19 +33,20 @@ export default function MatchMaker () {
     const randomId = 10000 + Math.floor(Math.random()*10000);
 
     useEffect(() => {
-        if (state.deckChoices.length) {
-            dispatch(restartGame());
-        }
+        // if (state.deckChoices.length) {
+        //     dispatch(restartGame());
+        // }
 
-        // gets deck choices from db
-        fetch('https://poke-decks-backend.onrender.com/decks.json', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(response => response.json())
-        .then(data => dispatch(update(['deckChoices', data])));
+        // // gets deck choices from db
+        // fetch('https://poke-decks-backend.onrender.com/api/decks', {
+        //     method: 'GET',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     }
+        // })
+        // .then(response => response.json())
+        // .then(data => dispatch(update(['deckChoices', data])));
+        dispatch(update(['deckChoices', decks]));
     }, [])
 
     useEffect(() => {

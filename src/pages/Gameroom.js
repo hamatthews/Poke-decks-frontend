@@ -1,16 +1,18 @@
 import {useState, useEffect} from 'react';
 import io from 'socket.io-client';
 
-
 import {useSelector, useDispatch} from 'react-redux';
 import {update} from '../redux/board';
 import {useNavigate} from 'react-router-dom';
+
+import decks from '../decks.json';
 
 import Background from '../components/Background/Background';
 import PlayerBoard from '../components/gameBoard/PlayerBoard';
 import PopupScreen from '../components/gameBoard/PopupScreen';
 
 import shuffle from '../functions/shuffle';
+
 
 export default function Gameroom () {
 
@@ -52,14 +54,15 @@ export default function Gameroom () {
     
     useEffect(() => {
         if (!state.deckChoices.length) {
-            fetch('https://poke-decks-backend.onrender.com/decks.json', {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-            .then(response => response.json())
-            .then(data => dispatch(update(['deckChoices', data])));
+            // fetch('https://poke-decks-backend.onrender.com/decks.json', {
+            //     method: 'GET',
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     }
+            // })
+            // .then(response => response.json())
+            // .then(data => dispatch(update(['deckChoices', data])));
+            dispatch(update(['deckChoices', decks]));
         }
         
         const url = window.location.href;
